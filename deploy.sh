@@ -9,6 +9,6 @@ cd docs/.vuepress/dist
 git add -A
 git commit -m 'deploy'
 
-git push -f https://github.com/kzz45/oma.git master:docs
+git push -f https://github.com/kzz45/oma.git
 
 cd -
