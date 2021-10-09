@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vue项目部署到NGINX | 运维管理平台</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="walle.png">
+    <meta name="description" content="欢迎来到Walle运维管理平台">
+    
+    <link rel="preload" href="/oma/assets/css/0.styles.f7827f91.css" as="style"><link rel="preload" href="/oma/assets/js/app.b5f631cc.js" as="script"><link rel="preload" href="/oma/assets/js/2.e19be14c.js" as="script"><link rel="preload" href="/oma/assets/js/18.88b4d838.js" as="script"><link rel="prefetch" href="/oma/assets/js/10.449a0996.js"><link rel="prefetch" href="/oma/assets/js/11.c3a10ae9.js"><link rel="prefetch" href="/oma/assets/js/12.f2a1c9e9.js"><link rel="prefetch" href="/oma/assets/js/13.586f9e89.js"><link rel="prefetch" href="/oma/assets/js/14.7021a076.js"><link rel="prefetch" href="/oma/assets/js/15.eceab79c.js"><link rel="prefetch" href="/oma/assets/js/16.e4f15286.js"><link rel="prefetch" href="/oma/assets/js/17.efc62547.js"><link rel="prefetch" href="/oma/assets/js/19.6d4a298d.js"><link rel="prefetch" href="/oma/assets/js/20.f916b03c.js"><link rel="prefetch" href="/oma/assets/js/21.aa79d71e.js"><link rel="prefetch" href="/oma/assets/js/22.deede7e6.js"><link rel="prefetch" href="/oma/assets/js/3.42bf8478.js"><link rel="prefetch" href="/oma/assets/js/4.cdc0d0fe.js"><link rel="prefetch" href="/oma/assets/js/5.d9df3623.js"><link rel="prefetch" href="/oma/assets/js/6.77817641.js"><link rel="prefetch" href="/oma/assets/js/7.e7227ec0.js"><link rel="prefetch" href="/oma/assets/js/8.b3d03e0f.js"><link rel="prefetch" href="/oma/assets/js/9.1eb9fde1.js">
+    <link rel="stylesheet" href="/oma/assets/css/0.styles.f7827f91.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/oma/" class="home-link router-link-active"><!----> <span class="site-name">运维管理平台</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/oma/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/oma/issue/" class="nav-link router-link-active">
+  常见问题
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维平台" class="dropdown-title"><span class="title">运维平台</span> <span class="arrow down"></span></button> <button type="button" aria-label="运维平台" class="mobile-dropdown-title"><span class="title">运维平台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/oma/cmdb/" class="nav-link">
+  资源管理
+</a></li><li class="dropdown-item"><!----> <a href="/oma/btree/" class="nav-link">
+  业务管理
+</a></li><li class="dropdown-item"><!----> <a href="/oma/order/" class="nav-link">
+  工单管理
+</a></li><li class="dropdown-item"><!----> <a href="/oma/jobs/" class="nav-link">
+  作业平台
+</a></li><li class="dropdown-item"><!----> <a href="/oma/monitor/" class="nav-link">
+  监控平台
+</a></li><li class="dropdown-item"><!----> <a href="/oma/container/" class="nav-link">
+  容器平台
+</a></li><li class="dropdown-item"><!----> <a href="/oma/settings/" class="nav-link">
+  配置管理
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/kzz45/oma" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/oma/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/oma/issue/" class="nav-link router-link-active">
+  常见问题
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维平台" class="dropdown-title"><span class="title">运维平台</span> <span class="arrow down"></span></button> <button type="button" aria-label="运维平台" class="mobile-dropdown-title"><span class="title">运维平台</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/oma/cmdb/" class="nav-link">
+  资源管理
+</a></li><li class="dropdown-item"><!----> <a href="/oma/btree/" class="nav-link">
+  业务管理
+</a></li><li class="dropdown-item"><!----> <a href="/oma/order/" class="nav-link">
+  工单管理
+</a></li><li class="dropdown-item"><!----> <a href="/oma/jobs/" class="nav-link">
+  作业平台
+</a></li><li class="dropdown-item"><!----> <a href="/oma/monitor/" class="nav-link">
+  监控平台
+</a></li><li class="dropdown-item"><!----> <a href="/oma/container/" class="nav-link">
+  容器平台
+</a></li><li class="dropdown-item"><!----> <a href="/oma/settings/" class="nav-link">
+  配置管理
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/kzz45/oma" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Vue项目部署到NGINX</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/oma/issue/vue_nginx.html#前端vue资源打包" class="sidebar-link">前端Vue资源打包</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/oma/issue/vue_nginx.html#部署到nginx-root目录" class="sidebar-link">部署到nginx root目录</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/oma/issue/vue_nginx.html#nginx-配置文件" class="sidebar-link">nginx 配置文件</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/oma/issue/vue_nginx.html#启动nginx服务" class="sidebar-link">启动nginx服务</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue项目部署到nginx"><a href="#vue项目部署到nginx" class="header-anchor">#</a> Vue项目部署到NGINX</h1> <h2 id="前端vue资源打包"><a href="#前端vue资源打包" class="header-anchor">#</a> 前端Vue资源打包</h2> <blockquote><p>打包后的文件存在Vue项目目录下的dist目录</p></blockquote> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> run build:prod
+</code></pre></div><h2 id="部署到nginx-root目录"><a href="#部署到nginx-root目录" class="header-anchor">#</a> 部署到nginx root目录</h2> <blockquote><p>将dist目录下的文件上传到nginx服务器的root目录下(nginx 配置文件的中的root配置)</p></blockquote> <h2 id="nginx-配置文件"><a href="#nginx-配置文件" class="header-anchor">#</a> nginx 配置文件</h2> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token directive"><span class="token keyword">user</span> nginx</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">worker_processes</span> auto</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">pid</span> /run/nginx.pid</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">error_log</span> /var/log/nginx/error.log</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">include</span> /usr/share/nginx/modules/*.conf</span><span class="token punctuation">;</span>
+<span class="token directive"><span class="token keyword">events</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">worker_connections</span> <span class="token number">1024</span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token directive"><span class="token keyword">http</span></span> <span class="token punctuation">{</span>
+    <span class="token directive"><span class="token keyword">log_format</span>  main  <span class="token string">'<span class="token variable">$remote_addr</span> - <span class="token variable">$remote_user</span> [<span class="token variable">$time_local]</span> &quot;<span class="token variable">$request</span>&quot; '</span>
+                      <span class="token string">'<span class="token variable">$status</span> <span class="token variable">$body_bytes_sent</span> &quot;<span class="token variable">$http_referer</span>&quot; '</span>
+                      <span class="token string">'&quot;<span class="token variable">$http_user_agent</span>&quot; &quot;<span class="token variable">$http_x_forwarded_for</span>&quot;'</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">access_log</span>          /var/log/nginx/access.log  main</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">sendfile</span>            <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">tcp_nopush</span>          <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">tcp_nodelay</span>         <span class="token boolean">on</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">keepalive_timeout</span>   <span class="token number">65</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">types_hash_max_size</span> <span class="token number">4096</span></span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">include</span>             /etc/nginx/mime.types</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">default_type</span>        application/octet-stream</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">include</span>             /etc/nginx/conf.d/*.conf</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">server</span></span> <span class="token punctuation">{</span>
+        <span class="token directive"><span class="token keyword">listen</span>       <span class="token number">80</span></span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">listen</span>       [::]:80</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">server_name</span>  your-server-name.com</span><span class="token punctuation">;</span>
+        <span class="token directive"><span class="token keyword">root</span>         /data/dist</span><span class="token punctuation">;</span>
+	<span class="token directive"><span class="token keyword">location</span> /</span> <span class="token punctuation">{</span>
+		<span class="token directive"><span class="token keyword">root</span>         /data/dist</span><span class="token punctuation">;</span>
+		<span class="token directive"><span class="token keyword">index</span>        index.html index.htm</span><span class="token punctuation">;</span>
+		<span class="token directive"><span class="token keyword">try_files</span>    <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ /index.html</span><span class="token punctuation">;</span> <span class="token comment"># 为了防止Vue 路由刷新的时候出现404</span>
+	<span class="token punctuation">}</span>
+    <span class="token comment"># /prod-api/ 是你Vue项目中VUE_APP_BASE_API的配置</span>
+    <span class="token directive"><span class="token keyword">location</span> /prod-api/</span> <span class="token punctuation">{</span>
+       <span class="token directive"><span class="token keyword">proxy_set_header</span>        X-Real-IP        <span class="token variable">$remote_addr</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_set_header</span>        X-Forwarded-For  <span class="token variable">$proxy_add_x_forwarded_for</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_set_header</span>        Host             <span class="token variable">$http_host</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_set_header</span>        X-NginX-Proxy    true</span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_set_header</span>        Connection <span class="token string">&quot;&quot;</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">add_header</span>              Access-Control-Allow-Origin *</span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_connect_timeout</span>   <span class="token number">300</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_send_timeout</span>      <span class="token number">300</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_read_timeout</span>      <span class="token number">300</span></span><span class="token punctuation">;</span>
+       <span class="token directive"><span class="token keyword">proxy_pass</span>              http://your-backend-server:8000/</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">404</span> /404.html</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> = /404.html</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token directive"><span class="token keyword">error_page</span> <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> /50x.html</span><span class="token punctuation">;</span>
+    <span class="token directive"><span class="token keyword">location</span> = /50x.html</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="启动nginx服务"><a href="#启动nginx服务" class="header-anchor">#</a> 启动nginx服务</h2> <div class="language-sh extra-class"><pre class="language-sh"><code>systemctl start nginx
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/23/2021, 6:09:19 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/oma/assets/js/app.b5f631cc.js" defer></script><script src="/oma/assets/js/2.e19be14c.js" defer></script><script src="/oma/assets/js/18.88b4d838.js" defer></script>
+  </body>
+</html>
